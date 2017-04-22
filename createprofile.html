@@ -1,0 +1,200 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="textinput.css">
+    <link rel="stylesheet" href="profilecreate.css">
+
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <section>
+                    <div class="wizard">
+                        <div class="wizard-inner">
+                            <div class="connecting-line"></div>
+                            <ul class="nav nav-tabs" role="tablist">
+
+                                <li role="presentation" class="active">
+                                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                                        <span class="round-tab">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                            </span>
+                                    </a>
+                                </li>
+
+                                <li role="presentation" class="disabled">
+                                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                                        <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                                    </a>
+                                </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                                        <span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+                                    </a>
+                                </li>
+
+                                <li role="presentation" class="disabled">
+                                    <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                                        <span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <form role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="step1">
+                                    <h1 style="text-align: center; font-size: 14pt;">We would like to get to know you better, please introduce yourself</h1>
+                                    <hr/>
+                                    <br/>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-offset-4 col-sm-4">
+                                                <form method="post">
+                                                    <div class="form-group">
+                                                        <label for="validate-text">Name</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" name="validate-text" id="validate-text" placeholder="Please enter your name." required>
+                                                            <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="validate-text">Username</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" name="validate-text" id="validate-text" placeholder="Please enter your username" required>
+                                                            <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="validate-email">Email</label>
+                                                        <div class="input-group" data-validate="email">
+                                                            <input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="Please enter your email address." required>
+                                                            <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="validate-phone">Cellphone Number</label>
+                                                        <div class="input-group" data-validate="phone">
+                                                            <input type="text" class="form-control" name="validate-phone" id="validate-phone" placeholder="076 606 4919" required>
+                                                            <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- <button type="submit" class="btn btn-primary col-xs-12 next-step" disabled>Submit</button> -->
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step2">
+                                    <h1 style="text-align: center; font-size: 14pt;">Now to set up your account security</h1>
+                                    <hr/>
+                                    <br/>
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-offset-4 col-sm-4">
+                                                <form method="post">
+                                                    <div class="form-group">
+                                                        <label for="validate-text">Enter a password</label>
+                                                        <div class="input-group">
+                                                            <input type="password" class="form-control" name="validate-text" id="validate-text" placeholder="" required>
+                                                            <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="validate-text">Verify Password</label>
+                                                        <div class="input-group">
+                                                            <input type="password" class="form-control" name="validate-text" id="validate-text" placeholder="" required>
+                                                            <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <!-- <button type="submit" class="btn btn-primary col-xs-12 next-step" disabled>Submit</button> -->
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-primarybtn-info-full next-step">Save and continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="step3">
+                                    <h1 style="text-align: center; font-size: 14pt;">Now to choose your team</h1>
+                                    <hr/>
+                                    <br/>
+
+
+                                    <div class="form-group">
+                                        <label for="validate-select">Please Choose A Team</label>
+                                        <div class="input-group">
+                                            <select class="form-control" name="validate-select" id="validate-select" placeholder="No Team Selected" required>
+                                                <option value="">Select a team</option>
+                                                <option value="item_1">Team Earth</option>
+                                                <option value="item_2">Team Fire</option>
+                                                <option value="item_3">Team Water</option>
+                                            </select>
+                                            <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+                                        </div>
+                                    </div>
+
+
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                        <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                                        <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="complete">
+                                    <h3>Complete</h3>
+                                    <p>You have successfully completed all steps.</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- ******************************************************************* -->
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <!-- ******************************************************************* -->
+
+    </body>
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="validationtext.js"></script>
+<script src="createprofile.js"></script>
