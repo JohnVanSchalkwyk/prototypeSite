@@ -47,6 +47,20 @@ function refresh()
         
 }
 
+function selectDefault(option)
+{
+    switch (option) {
+        case "signup":
+            document.getElementById("tab-2").checked = true;
+            break;
+        case "signin":
+            document.getElementById("tab-1").checked = true;
+    
+        default:
+            break;
+    }
+}
+
 
 
 $(document).ready(function() {
@@ -56,4 +70,12 @@ $(document).ready(function() {
             $("#logout_user").click(function(){
                 logout();
             });
+
+            $('#signupbtn').on('click', function(event) {
+                    selectDefault("signup"); // To prevent following the link (optional)
+            });
+            $('#signinbtn').on('click', function(event) {
+                    selectDefault("signin"); // To prevent following the link (optional)
+            });
+
 });

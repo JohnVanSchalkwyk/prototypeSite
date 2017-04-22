@@ -34,8 +34,9 @@
         <div class="row">
 
         <div id="loginHeader" class="col-sm-12">
-            <div style="float: right" class="col-sm-12 pull-right text-right">
-                <a data-backdrop="static" class="btn btn-default btn-lg" data-toggle="modal" data-target="#loginModal">Login</a>
+            <div class="col-sm-12 pull-right text-right">
+                Not registered? Click<a data-backdrop="static"  id="signupbtn" class="btn" data-toggle="modal" data-target="#loginModal"><b>here!</b></a>
+                <a data-backdrop="static" class="btn btn-default" id="signinbtn" data-toggle="modal" data-target="#loginModal">Login</a>
 
                 <!-- Modal -->
                 <div id="loginModal" class="modal fade" role="dialog">
@@ -75,23 +76,28 @@
                                                     <form method="post" action="signup.php">
                                                     <div class="group">
                                                         <label for="signup_user" class="label">Username</label>
-                                                        <input id="signup_user" name="signup_user" type="text" class="input">
+                                                        <input id="signup_user" name="signup_user" type="text" class="input" required>
                                                     </div>
                                                     <div class="group">
                                                         <label for="signup_pass" class="label">Password</label>
-                                                        <input id="signup_pass" name="signup_pass" type="password" class="input" data-type="password">
+                                                        <input id="signup_pass" name="signup_pass" type="password" class="input" data-type="password" required>
                                                     </div>
                                                     <div class="group">
                                                         <label for="signup_email" class="label">Email Address</label>
-                                                        <input id="signup_email" name="signup_email" type="text" class="input">
+                                                        <input id="signup_email" name="signup_email" type="text" class="input" required>
+                                                    </div>
+                                                    <div class="group">
+                                                        <label for="signup_fname" class="label">Firstname</label>
+                                                        <input id="signup_fname" name="signup_fname" type="text" class="input" required>
+                                                    </div>
+                                                    <div class="group">
+                                                        <label for="signup_sname" class="label">Surname</label>
+                                                        <input id="signup_sname" name="signup_sname" type="text" class="input" required>
                                                     </div>
                                                     <div class="group">
                                                         <input type="submit" class="button" value="Sign Up">
                                                     </div>
                                                     </form>
-                                                    <div class="hr"></div>
-                                                    <div class="foot-lnk">
-                                                        <label for="tab-1">Already Member?</label>
                                                     </div>
                                                     
                                                 </div>
