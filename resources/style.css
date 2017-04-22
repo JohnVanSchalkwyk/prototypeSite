@@ -37,7 +37,6 @@ a {
     max-width: 570px;
     min-height: 670px;
     position: relative;
-    background: url("Images/login.JPG") no-repeat center;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
 }
 
@@ -204,4 +203,74 @@ small {
 
 .foot-lnk {
     text-align: center;
+}
+
+#loginModal
+{
+    background-color: black;
+    
+}
+
+#loginModal .modal-content
+{
+    background-color: transparent;
+}
+
+#loginHeader
+{
+    background-color: rgba(17, 18, 18, 0.91);
+}
+
+#banner
+{
+    background-color: yellow;
+    height: 100px;
+    width: 100%;
+}
+
+.toggles
+{
+    width: 100%;
+    background-color: rgba(17, 18, 18, 0.91);
+    min-height: 500px;
+}
+
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+
+#fillSpaceSearch
+{
+    width:100%;
+    min-height:100px;
 }
