@@ -114,6 +114,44 @@
         </div>
     </div>
     </div>
+    <!-- Tab Section -->
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <ul class="nav nav-pills nav-justified">
+            <li><a data-toggle="tab" href="#general">General Information</a></li>
+            <li class="active"><a data-toggle="tab" href="#event">Find an Event</a></li>
+            <li><a data-toggle="tab" href="#dashboard">My Dashboard</a></li>
+        </ul>
+
+            <div class="tab-content">
+                    <div id="general" class="toggles tab-pane fade">
+                            
+                                
+                    </div>
+                    <div id="event" class="toggles tab-pane fade in active">
+                        <div id="fillSpaceSearch" class="row"></div>
+                            <div id="custom-search-input" class="col-sm-6 col-sm-offset-3">
+                                <div class="input-group col-md-12">
+                                    <input type="text" class="form-control input-lg" placeholder="Search..." />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-info btn-lg" type="button">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                        </button>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>    
+                    </div>
+                    <div id="dashboard" class="toggles tab-pane fade">
+                                
+                            
+                    </div>
+            </div>
+
+    </div>
+
+</div>
+     <!-- End Tab -->
 </div>
 
 <!-- Notification Modal -->
@@ -164,8 +202,12 @@
         }
         
 ?>
-</body>
 
+  
+
+</body>
+<footer>
+</footer>
 
 
 
