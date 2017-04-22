@@ -120,6 +120,17 @@ a {
     -webkit-text-security: circle;
 }
 
+.glyphicon {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+small {
+    display: block;
+    line-height: 1.428571429;
+    color: #999;
+}
+
 .login-form .group .label {
     color: #aaa;
     font-size: 12px;
