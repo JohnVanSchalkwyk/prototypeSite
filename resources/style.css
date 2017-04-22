@@ -37,7 +37,6 @@ a {
     max-width: 570px;
     min-height: 670px;
     position: relative;
-    background: url("Images/login.JPG") no-repeat center;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
 }
 
@@ -204,4 +203,27 @@ small {
 
 .foot-lnk {
     text-align: center;
+}
+
+#loginModal
+{
+    background-color: black;
+    
+}
+
+#loginModal .modal-content
+{
+    background-color: transparent;
+}
+
+#loginHeader
+{
+    background-color: rgba(17, 18, 18, 0.91);
+}
+
+#banner
+{
+    background-color: yellow;
+    height: 100px;
+    width: 100%;
 }
