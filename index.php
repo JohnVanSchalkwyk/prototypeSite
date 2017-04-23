@@ -25,6 +25,7 @@
 
 <link rel="stylesheet" href="resources/style.css">
 <script src="resources/functions.js"></script>
+<script src="resources/js-webshim/minified/polyfiller.js"></script>
 </head>
 <body onload="init()">
     <div class="container-fluid">
@@ -120,7 +121,7 @@
         <ul class="nav nav-pills nav-justified">
             <li><a data-toggle="tab" href="#general">General Information</a></li>
             <li class="active"><a data-toggle="tab" href="#event">Find an Event</a></li>
-            <li><a data-toggle="tab" href="#dashboard">My Dashboard</a></li>
+            <li><a data-toggle="tab" id="dashTab" href="#dashboard">My Dashboard</a></li>
         </ul>
 
             <div class="tab-content">
@@ -128,22 +129,216 @@
                             
                                 
                     </div>
-                    <div id="event" class="toggles tab-pane fade in active">
-                        <div id="fillSpaceSearch" class="row"></div>
-                            <div id="custom-search-input" class="col-sm-6 col-sm-offset-3">
-                                <div class="input-group col-md-12">
-                                    <input type="text" class="form-control input-lg" placeholder="Search..." />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-info btn-lg" type="button">
-                                        <i class="glyphicon glyphicon-search"></i>
-                                        </button>
-                                    </span>
+                    <div id="event" class="toggles tab-pane fade in active text-center">
+                        <div class="row" id="spacer"></div>
+                           <div class="row">
+		<div class="col-md-12">
+            <div class="input-group" id="adv-search">
+                <input type="text" id="simplesearch" class="form-control" placeholder="Search for events..." />
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" onclick="populateField()" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form id="advanced" class="form-horizontal" role="form">
+                                  <div class="form-group">
+                                    <label for="Date">Choose Date From:</label><br>
+                                    <input id="date_from" name="date_from" type="date">
+                                  </div>
+                                   <div class="form-group">
+                                    <label for="Date">Choose Date Until:</label><br>
+                                    <input id="date_till" name="date_till" type="date">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="contain">Field</label><br>
+                                   <input id="field" name="field" list="fieldList">
+                                        <datalist id="fieldList">
+                                        </datalist>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="contain">Area</label><br>
+                                    <input class="form-control" id="area" name="area" type="text" />
+                                  </div>
+                                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                </form>
                             </div>
                         </div>
-                    </div>    
+                        <button type="button" onclick="simpleSearch()" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     </div>
-                    <div id="dashboard" class="toggles tab-pane fade">
+                </div>
+            </div>
+          </div>
+          
+
+          </div>
+         </div>
+            <div id="dashboard" class="toggles tab-pane fade">
+                                                        <ul class="nav nav-tab nav-justified">
                                 
+                                <li><a data-toggle="tab" href="#myevents">My Events</a></li>
+                                <li class="active"><a data-toggle="tab" href="#dashProfile">My Profile</a></li>
+                                <li><a data-toggle="tab" href="#myteams">My Teams</a></li>
+                                </ul>
+
+                                <div class="tab-content">
+                                <div id="dashProfile" class="tab-pane fade in active">
+                                    <div class="row" id="spacer"></div>
+                                    <div class="row">
+                                        <div style="border:solid yellow" class="col-sm-6 col-sm-offset-3">
+                                                <h3 id="username" >Username</h3>
+                                                <h5 id="name">Name</h5>
+                                                
+                                                <h5 id="sname">Surname</h5>
+                                                
+                                                <h5 id="email">Email</h5>                                            
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div id="myevents" class="tab-pane fade">
+                                    <div id="eventContents" class="row">
+
+
+                                        
+                                    </div>
+
+
+                                    <div id="spacer" class="row"></div>
+                                    <div class="row">
+                                        <button onclick="createNewEvent()" style="margin-bottom:1%" class="btn btn-default">Create Event</button>
+
+                                                                                                <!-- Modal -->
+                                                        <div id="createEventModal" class="modal fade" role="dialog">
+                                                        <div class="modal-dialog">
+
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Create New Event</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                    <form method="POST" action="addNewEvent.php">
+                                                                        <div class="form-group">
+                                                                            <label for="event_name">Name of Event:</label>
+                                                                            <input type="text" name="event_name" class="form-control" id="event_name" required>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="date_when">When:</label>
+                                                                            <input type="date" name="date_when" class="form-control" id="date_when" required>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="add_from">Time(From):</label>
+                                                                            <input type="time" name="add_from" class="form-control" id="add_from" required>
+                                                                        </div>
+                                                                         <div class="form-group">
+                                                                            <label for="add_till">Time(Until):</label>
+                                                                            <input type="time" name="add_till" class="form-control" id="add_till" required>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                        <label for="contain">Field:</label><br>
+                                                                    <input id="field" name="field" list="fieldList" required>
+                                                                            <datalist id="fieldList">
+                                                                            </datalist>
+                                                                    </div>
+                                                                        <button type="submit" class="btn btn-default">Submit</button>
+                                                                        </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                            </div>
+
+                                                        </div>
+                                                        </div>
+                                       
+                                    </div>
+                                    <div class="row">
+                                        <button onclick="bookEvent()" class="btn btn-default">Attend An Event</button>
+                                                
+                                                                                                <!-- Modal -->
+                                                        <div id="bookEventModal" class="modal fade" role="dialog">
+                                                        <div class="modal-dialog">
+
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Attend An Event</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div id="bookEventContent"></div>
+                                                                    
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                            </div>
+
+                                                        </div>
+                                                        </div>
+
+                                        </div>
+                                </div>
+                                <div id="myteams" class="tab-pane fade">
+          
+                        <div class="col-sm-6 col-md-offset-3">
+
+                            <h4>TEAM : WATER</h4>
+
+                            <!-- ================================================================================ -->
+                            <div>
+                                <div class="row">
+
+                                    <table class="table table-striped table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>Username</th>
+                                                <th>Date registered</th>
+                                                <th>Role</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Donna R. Folse</td>
+                                                <td>2012/05/06</td>
+                                                <td>Admin</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Emily F. Burns</td>
+                                                <td>2011/12/01</td>
+                                                <td>Noob</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Andrew A. Stout</td>
+                                                <td>2010/08/21</td>
+                                                <td>Runner</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mary M. Bryan</td>
+                                                <td>2009/04/11</td>
+                                                <td>Admin</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mary A. Lewis</td>
+                                                <td>2007/02/01</td>
+                                                <td>Sniper</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <!-- ================================================================================ -->
+
+
+                        </div>
+           
+</div>
+                                </div>
+                                </div>
+                                                                
                             
                     </div>
             </div>
@@ -203,7 +398,6 @@
         
 ?>
 
-  
 
 </body>
 <footer>

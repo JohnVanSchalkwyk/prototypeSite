@@ -37,7 +37,7 @@
                  else
                  {
                       $arr = array($data["userID"],$data["fname"]);
-                      $_SESSION["user"] = json_encode($arr);
+                      setcookie("user",json_encode($arr));
                  }
                 
                 $query->close();
