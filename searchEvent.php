@@ -23,7 +23,7 @@
                         $assoc11 = $res11->fetch_assoc();
                          $uniqueID = uniqid();
                     $str = "_".$uniqueID;
-                        echo "<div id=".$str." class='col-sm-3 text-center'><h3>".$assoc0["eventName"]."</h3><hr/><p>Field : ".$assoc11["fieldName"]."<br>Location : ".$assoc11["fieldAddress"]."<br>Time : ".$assoc0["eventTimeFrom"]." till ".$assoc0["eventTimeUntil"]."<br>Date : ".$assoc0["eventDate"]."</p><button onclick='javascript:clearResult(".$str.")' class='btn btn-danger'>Clear</button></div>";
+                        echo "<div id=".$str." class='col-sm-3 text-center'><h3>".$assoc0["eventName"]."</h3><hr/><p>Field : ".$assoc11["fieldName"]."<br>Location : ".$assoc11["fieldAddress"]."<br>Time : ".$assoc0["eventTimeFrom"]." till ".$assoc0["eventTimeUntil"]."<br>Date : ".$assoc0["eventDate"]."</p><button onclick='javascript:clearResult(".$str.")' class='btn btn-danger'>Clear</button><button onclick='javascript:queryBook(".$assoc0["eventID"].")' class='btn btn-info'>Book</button></div>";
             
                     }
                 }

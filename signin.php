@@ -34,12 +34,11 @@
                  $arr = array($data["userID"],$data["fname"]);
                  setcookie("persistUser",json_encode($arr),$day_of_expiry);
                  }
-                 else
-                 {
-                      $arr = array($data["userID"],$data["fname"]);
-                      setcookie("user",json_encode($arr));
-                 }
-                
+                 
+                     
+                 
+                $arr = array($data["userID"],$data["fname"]);
+                setcookie("user",json_encode($arr));
                 $query->close();
                 $mysqli->close();
                  header("Location: index.php?success=" .$data["fname"]);

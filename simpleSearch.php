@@ -5,6 +5,15 @@
 
     if((isset($_POST["event"])))
     {
+        $enabled;
+        if(isset($_COOKIE['user']) || isset($_COOKIE['persistUser']))
+        {
+            $enabled = "";
+        }
+        else
+        {
+            $enabled = "disabled";
+        }
            
             $var = $mysqli->prepare("SELECT * FROM events WHERE eventName LIKE CONCAT('%',?,'%')");
             $var->bind_param("s",$_POST["event"]);
@@ -26,7 +35,7 @@
                     $assoc0 = $result2->fetch_assoc();
                     $uniqueID = uniqid();
                     $str = "_".$uniqueID;
-                    echo "<div id='".$str."' class='col-sm-3 text-center'><h3>".$assoc["eventName"]."</h3><hr/><p>Field : ".$assoc0["fieldName"]."<br>Location : ".$assoc0["fieldAddress"]."<br>Time : ".$assoc["eventTimeFrom"]." till ".$assoc["eventTimeUntil"]."<br>Date : ".$assoc["eventDate"]."</p><button onclick='javascript:clearResult(".$str.")' class='btn btn-danger'>Clear</button></div>";
+                    echo "<div id='".$str."' class='col-sm-3 text-center'><h3>".$assoc["eventName"]." <button style='color:white' onclick='javascript:clearResult(".$str.")' class='close' >&times</button></h3><hr/><p>Field : ".$assoc0["fieldName"]."<br>Location : ".$assoc0["fieldAddress"]."<br>Time : ".$assoc["eventTimeFrom"]." till ".$assoc["eventTimeUntil"]."<br>Date : ".$assoc["eventDate"]."</p><button onclick='javascript:queryBook(".$assoc["eventID"].")' class='btn btn-info' ".$enabled." >Book</button><br></div>";
             
             }
             }

@@ -120,13 +120,84 @@
     <div class="col-sm-12 text-center">
         <ul class="nav nav-pills nav-justified">
             <li><a data-toggle="tab" href="#general">General Information</a></li>
-            <li class="active"><a data-toggle="tab" href="#event">Find an Event</a></li>
+            <li onclick="reloadEvents()" class="active"><a data-toggle="tab" href="#event">Find an Event</a></li>
             <li><a data-toggle="tab" id="dashTab" href="#dashboard">My Dashboard</a></li>
         </ul>
 
             <div class="tab-content">
                     <div id="general" class="toggles tab-pane fade">
-                            
+                       <div class="row">
+                           <div class="col-sm-12">
+                           <h2>MILITIAEVENTS</h2><hr/>
+
+<h3>SCENARIO PAINTBALL</h3>
+
+<p>SAFCAPS MILITIA is fun social scenario paintball events created and hosted by SAFCAPS Paintballs. MILITIA is a totally unique game format and a high level of creativity. We create objectives and mix it with pyrotechnics for extra effect. Our aim is to create a platform where people can play paintball socially.</p>
+<hr/>
+<h4>HOW IT WORKS</h4>
+
+<p>You don’t need a team. You can participate as an individual player. All the players on the day are divided into two equal teams, namely <i style="color:red">GHOST ARMY (Red Team)</i> and <i style="color:blue">LEGION (Blue Team)</i>. These two teams battle it out by collecting or completing as many objectives with in the 30 minute time frame. We play a total of 6-8 games per event. You win the scenario by completing the objectives. When you complete the objective you get points. At the end of the day we count all the points and the team with the most points win. It’s simple and basic, but fun. Games are 30 minutes long with 5 minute re-spawn intervals. Players can exit the field to refill air or Paintballs. Players can enter the game on the next re-spawn buzzer. We regulate the re-spawns on our own account to keep the game alive.</p>
+
+<p>Within a game/scenario one team will be defending the objective while the other team need to attack and complete objectives. The next game, the team that was defending will then be attacking and the other team will then get the chance to defend the objectives.</p>
+
+<hr/><h4>CLOTHING</h4>
+
+<p>We are playing a military simulated game. All players need to wear camouflage clothing or clothing that resembles some sort of a military institution.</p>
+
+<hr/><h4>SCORING</h4>
+<ul>
+<li>Collect Shields = 1 x point</li>
+<li>Shoot Targets down = 1 x point</li>
+<li>Collect Body bags = 2 x points</li>
+<li>Golden Goose = 2 x points</li>
+<li>Set of a Bomb = 3 x points</li>
+<li>Capture base flag = 5 points and the game is over</li>
+</ul>
+
+<hr/><h4>VOUCHER</h4>
+
+<p>Players will receive incentives when the collect objectives. For every body bag, the player will receive a 10% discount Voucher towards his/her next Militia game fees.
+You can collect multiple vouchers per event.</p>
+
+<p>For every shield collected the player will receive a 10% discount voucher on his/her next SAFCAPS paintballs purchase</p>
+
+<p>Inside the game we will hide the Golden Goose. A golden Goose will give you a free ticket towards the next Militia event.</p>
+
+<hr/><h4>RULES</h4>
+
+<p>We keep our rules basic. The following rules apply</p>
+<ul>
+    <li>All hits count</li>
+    <li>1 x pods per game ( you can exit, refill and join the game again)</li>
+    <li>Friendly fire count</li>
+    <li>No blind firing</li>
+    <li>When you are hit, shout hit, lift your marker/gun above your head and exit the field immediately</li>
+    <li>Bounce, play on</li>
+    <li>Don’t overkill</li>
+    <li>No swearing on the field (You will be asked to leave the event)</li>
+    <li>All type of markers allowed</li>
+    <li>Keep alcohol intake on the minimum</li>
+    <li>Have fun</li>
+    <li>SAFCAPS Paint only event</li>
+</ul>
+
+<hr/><h4>FEES</h4>
+<ul>
+<li>Player fee – R80</li>
+<li>Air for the day – R40</li>
+<li>Co2 – R1.5 /oz</li>
+</ul>        
+        
+        <h4>Paintballs</h4>
+    <li>Slasher R400</li>
+    <li>Three2 R450</li>
+    <li>Recoil R480</li>
+    <li>Punk R480</li>
+    <li>Hooligan R500</li>
+
+                           </div>
+                           
+                           </div>     
                                 
                     </div>
                     <div id="event" class="toggles tab-pane fade in active text-center">
@@ -254,31 +325,7 @@
                                                         </div>
                                        
                                     </div>
-                                    <div class="row">
-                                        <button onclick="bookEvent()" class="btn btn-default">Attend An Event</button>
-                                                
-                                                                                                <!-- Modal -->
-                                                        <div id="bookEventModal" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog">
-
-                                                            <!-- Modal content-->
-                                                            <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title">Attend An Event</h4>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div id="bookEventContent"></div>
-                                                                    
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                            </div>
-                                                            </div>
-
-                                                        </div>
-                                                        </div>
-
-                                        </div>
+                            
                                 </div>
                                 <div id="myteams" class="tab-pane fade">
           
@@ -372,9 +419,7 @@
         if(isset($_GET['notification']))
         {
             $code = $_GET['notification'];
-            echo '<script type="text/javascript"> display("'.$code.'");</script>';
-            
-            
+            echo '<script type="text/javascript"> display("'.$code.'");</script>';     
             
         }
         if(isset($_GET['success']))
@@ -389,9 +434,9 @@
             echo '<script type="text/javascript"> welcome("'.$code[1].'");</script>';
 
         }
-        else if(isset($_SESSION['user']))
+        else if(isset($_COOKIE['user']))
         {
-            $code = json_decode($_SESSION['user']);
+            $code = json_decode($_COOKIE['user']);
             echo '<script type="text/javascript"> welcome("'.$code[1].'");</script>';
             
         }

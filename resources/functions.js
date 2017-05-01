@@ -153,20 +153,20 @@ function populateMyEvents()
 function isLoggedin()
 {
     
-    if(!readCookie("persistUser") || !readCookie("user"))
+    if(getCookie("persistUser") || getCookie("user"))
     {
         
-        return false;
+        return true;
     }
     else
     {
-        return true;
+        return false;
     }
 }
 
 function readCookie(name) {
     var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
+    var ca = decodeURIComponent(document.cookie).split(';');
     for(var i=0;i < ca.length;i++) {
         var c = ca[i];
         while (c.charAt(0)==' ') c = c.substring(1,c.length);
@@ -217,6 +217,11 @@ function refresh()
         }
     }
         
+}
+
+function reloadEvents()
+{
+    location.reload();
 }
 
 function selectDefault(option)
